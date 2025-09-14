@@ -7,22 +7,32 @@ from pathlib import Path
 
 def generate_gemini_briefing(scenario_data, result_data):
     """
-    Uses the Gemini API to generate a detailed, analytical briefing for a section controller.
+    Uses the Gemini API to generate an insightful, analytical briefing for a section controller.
     """
-    print("\n--- Contacting Gemini API to generate controller briefing ---")
+    print("\n--- Generating Controller Briefing with Gemini API ---")
     
     try:
+        # It's recommended to use environment variables for API keys
+        # The script will look for an environment variable named 'GOOGLE_API_KEY'
         api_key = os.environ.get("GOOGLE_API_KEY")
         if not api_key:
-            raise ValueError("GOOGLE_API_KEY environment variable not set.")
+            # As a fallback, you can check for the key you set in the terminal
+            api_key = os.environ.get("GEMINI_API_KEY")
+        
+        if not api_key:
+            raise ValueError("API key not found. Please set the GOOGLE_API_KEY or GEMINI_API_KEY environment variable.")
         
         genai.configure(api_key=api_key)
-        client = genai.GenerativeClient()
+        
+        # Corrected Model: Using 'gemini-1.5-flash' which is a current and powerful model.
+        # This resolves the "404 models/gemini-pro is not found" error.
+        model = genai.GenerativeModel('gemini-1.5-flash')
+
     except Exception as e:
-        print(f"\nError configuring Gemini client: {e}")
+        print(f"\nError configuring the Gemini client: {e}")
         return None
 
-    # Construct the new, more detailed prompt
+    # The detailed prompt remains the same to ensure high-quality output
     prompt = f"""
     You are an expert AI assistant for railway operations, specializing in translating complex optimization data into clear, actionable instructions for a human Section Controller. Your analysis must be deep, insightful, and operationally focused.
 
@@ -57,11 +67,15 @@ def generate_gemini_briefing(scenario_data, result_data):
     """
 
     try:
-        response = client.generate_content(
-            model="models/gemini-1.5-flash",
-            contents=prompt
-        )
-        return response.text
+        response = model.generate_content(prompt)
+        # It's good practice to check if the response has text before accessing it
+        if hasattr(response, 'text'):
+            return response.text
+        else:
+            # Handle cases where the response might be blocked or empty
+            print(f"Received an empty or blocked response from the API. Response details: {response}")
+            return "Error: Failed to generate briefing. The response from the API was empty or blocked."
+            
     except Exception as e:
         print(f"\nAn error occurred during the API call: {e}")
         return None
@@ -85,3 +99,9 @@ if __name__ == "__main__":
             print("          GEMINI-POWERED CONTROLLER BRIEFING")
             print("==========================================================")
             print(briefing)
+            
+            # Save the briefing to a text file for review
+            briefing_path = Path("operational_briefing.txt")
+            with open(briefing_path, 'w', encoding='utf-8') as f:
+                f.write(briefing)
+            print(f"\nBriefing successfully saved to '{briefing_path}'")

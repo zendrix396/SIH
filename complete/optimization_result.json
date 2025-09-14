@@ -1,14 +1,92 @@
 {
     "solver_status": "Optimal",
-    "total_cost_objective": 405.7679962709599,
+    "total_cost_objective": 5153.9481338794885,
     "train_results": {
-        "UP_Express": {
-            "priority": 10,
+        "Train_00": {
+            "priority": 5,
             "direction": "UP",
-            "scheduled_departure": 50,
-            "scheduled_final_arrival": 555.8461538461539,
-            "optimal_departure": 50.0,
-            "optimal_final_arrival": 555.8461538461539,
+            "scheduled_departure": 7,
+            "scheduled_final_arrival": 769.9729729729729,
+            "optimal_departure": 7.0,
+            "optimal_final_arrival": 790.4704785041802,
+            "final_delay_mins": 20.497505531207253,
+            "actions": {
+                "hold_at_origin_mins": 0.0,
+                "loops_used_at": {}
+            },
+            "full_schedule_mins": {
+                "arrivals": {
+                    "Station_00": 0.0,
+                    "Station_01": 83.21621621621621,
+                    "Station_02": 150.51351351351352,
+                    "Station_03": 243.75675675675677,
+                    "Station_04": 333.7567567567568,
+                    "Station_05": 421.3243243243243,
+                    "Station_06": 520.4704785041802,
+                    "Station_07": 595.8758839095856,
+                    "Station_08": 716.6866947203964,
+                    "Station_09": 790.4704785041802
+                },
+                "departures": {
+                    "Station_00": 7.0,
+                    "Station_01": 83.21621621621621,
+                    "Station_02": 150.51351351351352,
+                    "Station_03": 243.75675675675677,
+                    "Station_04": 333.7567567567568,
+                    "Station_05": 441.8218298555315,
+                    "Station_06": 520.4704785041802,
+                    "Station_07": 595.8758839095856,
+                    "Station_08": 716.6866947203964,
+                    "Station_09": null
+                }
+            }
+        },
+        "Train_01": {
+            "priority": 3,
+            "direction": "UP",
+            "scheduled_departure": 153,
+            "scheduled_final_arrival": 926.4246575342466,
+            "optimal_departure": 153.0,
+            "optimal_final_arrival": 956.5437846870806,
+            "final_delay_mins": 30.119127152833926,
+            "actions": {
+                "hold_at_origin_mins": 0.0,
+                "loops_used_at": {}
+            },
+            "full_schedule_mins": {
+                "arrivals": {
+                    "Station_00": 0.0,
+                    "Station_01": 230.26027397260276,
+                    "Station_02": 298.47945205479454,
+                    "Station_03": 393.0,
+                    "Station_04": 484.2328767123288,
+                    "Station_05": 600.7925622681678,
+                    "Station_06": 682.8451545500942,
+                    "Station_07": 759.2835107144778,
+                    "Station_08": 881.7492641391353,
+                    "Station_09": 956.5437846870806
+                },
+                "departures": {
+                    "Station_00": 153.0,
+                    "Station_01": 230.26027397260276,
+                    "Station_02": 298.47945205479454,
+                    "Station_03": 393.0,
+                    "Station_04": 512.0254389804966,
+                    "Station_05": 603.1191271528339,
+                    "Station_06": 682.8451545500942,
+                    "Station_07": 759.2835107144778,
+                    "Station_08": 881.7492641391353,
+                    "Station_09": null
+                }
+            }
+        },
+        "Train_02": {
+            "priority": 3,
+            "direction": "UP",
+            "scheduled_departure": 21,
+            "scheduled_final_arrival": 558.7142857142858,
+            "optimal_departure": 21.0,
+            "optimal_final_arrival": 558.7142857142858,
             "final_delay_mins": 0.0,
             "actions": {
                 "hold_at_origin_mins": 0.0,
@@ -16,116 +94,194 @@
             },
             "full_schedule_mins": {
                 "arrivals": {
-                    "Station_00": 50.0,
-                    "Station_01": 114.61538461538461,
-                    "Station_02": 164.0,
-                    "Station_03": 210.6153846153846,
-                    "Station_04": 278.46153846153845,
-                    "Station_05": 332.46153846153845,
-                    "Station_06": 385.53846153846155,
-                    "Station_07": 438.1538461538462,
-                    "Station_08": 488.00000000000006,
-                    "Station_09": 555.8461538461539
+                    "Station_00": 0.0,
+                    "Station_01": 74.71428571428572,
+                    "Station_02": 122.14285714285714,
+                    "Station_03": 187.85714285714286,
+                    "Station_04": 251.28571428571428,
+                    "Station_05": 313.0,
+                    "Station_06": 368.42857142857144,
+                    "Station_07": 421.57142857142856,
+                    "Station_08": 506.7142857142857,
+                    "Station_09": 558.7142857142858
                 },
                 "departures": {
-                    "Station_00": 50.0,
-                    "Station_01": 114.61538461538461,
-                    "Station_02": 164.0,
-                    "Station_03": 210.6153846153846,
-                    "Station_04": 278.46153846153845,
-                    "Station_05": 332.46153846153845,
-                    "Station_06": 385.53846153846155,
-                    "Station_07": 438.1538461538462,
-                    "Station_08": 488.00000000000006,
-                    "Station_09": 555.8461538461539
+                    "Station_00": 21.0,
+                    "Station_01": 74.71428571428572,
+                    "Station_02": 122.14285714285714,
+                    "Station_03": 187.85714285714286,
+                    "Station_04": 251.28571428571428,
+                    "Station_05": 313.0,
+                    "Station_06": 368.42857142857144,
+                    "Station_07": 421.57142857142856,
+                    "Station_08": 506.7142857142857,
+                    "Station_09": null
                 }
             }
         },
-        "DOWN_Goods": {
+        "Train_03": {
+            "priority": 3,
+            "direction": "DOWN",
+            "scheduled_departure": 85,
+            "scheduled_final_arrival": 719.3820224719102,
+            "optimal_departure": 85.0,
+            "optimal_final_arrival": 783.7108322389236,
+            "final_delay_mins": 64.32880976701335,
+            "actions": {
+                "hold_at_origin_mins": 0.0,
+                "loops_used_at": {}
+            },
+            "full_schedule_mins": {
+                "arrivals": {
+                    "Station_00": 783.7108322389236,
+                    "Station_01": 720.3400457220696,
+                    "Station_02": 664.3849895422943,
+                    "Station_03": 586.8568996546538,
+                    "Station_04": 512.0254389804966,
+                    "Station_05": 437.8218298555315,
+                    "Station_06": 309.49438202247194,
+                    "Station_07": 246.79775280898878,
+                    "Station_08": 146.34831460674158,
+                    "Station_09": 0.0
+                },
+                "departures": {
+                    "Station_00": null,
+                    "Station_01": 720.3400457220696,
+                    "Station_02": 664.3849895422943,
+                    "Station_03": 586.8568996546538,
+                    "Station_04": 512.0254389804966,
+                    "Station_05": 439.2164502164517,
+                    "Station_06": 372.4285714285652,
+                    "Station_07": 246.79775280898878,
+                    "Station_08": 146.34831460674158,
+                    "Station_09": 85.0
+                }
+            }
+        },
+        "Train_04": {
             "priority": 1,
             "direction": "DOWN",
-            "scheduled_departure": 0,
-            "scheduled_final_arrival": 939.4285714285713,
-            "optimal_departure": 0.0,
-            "optimal_final_arrival": 1233.2692211286192,
-            "final_delay_mins": 293.84064970004783,
+            "scheduled_departure": 131,
+            "scheduled_final_arrival": 819.5365853658536,
+            "optimal_departure": 131.0,
+            "optimal_final_arrival": 1033.7024390243844,
+            "final_delay_mins": 214.16585365853075,
             "actions": {
                 "hold_at_origin_mins": 0.0,
                 "loops_used_at": {}
             },
             "full_schedule_mins": {
                 "arrivals": {
-                    "Station_00": 1233.2692211286192,
-                    "Station_01": 1113.2692211286192,
-                    "Station_02": 1021.5549354143334,
-                    "Station_03": 934.9835068429048,
-                    "Station_04": 515.1428571428571,
-                    "Station_05": 414.85714285714283,
-                    "Station_06": 316.2857142857143,
-                    "Station_07": 218.57142857142856,
-                    "Station_08": 126.0,
-                    "Station_09": -0.0
-                },
-                "departures": {
-                    "Station_00": 1233.2692211286192,
-                    "Station_01": 1113.2692211286192,
-                    "Station_02": 1021.5549354143334,
-                    "Station_03": 934.9835068429048,
-                    "Station_04": 808.9835068429048,
-                    "Station_05": 414.85714285714283,
-                    "Station_06": 316.2857142857143,
-                    "Station_07": 218.57142857142856,
-                    "Station_08": 126.0,
+                    "Station_00": 1033.7024390243844,
+                    "Station_01": 964.9219512195064,
+                    "Station_02": 904.1902439024332,
+                    "Station_03": 820.0439024390186,
+                    "Station_04": 738.8243902438966,
+                    "Station_05": 595.4460882602829,
+                    "Station_06": 374.6585365853659,
+                    "Station_07": 306.609756097561,
+                    "Station_08": 197.58536585365854,
                     "Station_09": 0.0
+                },
+                "departures": {
+                    "Station_00": null,
+                    "Station_01": 964.9219512195064,
+                    "Station_02": 904.1902439024332,
+                    "Station_03": 820.0439024390186,
+                    "Station_04": 738.8243902438966,
+                    "Station_05": 659.7999999999942,
+                    "Station_06": 524.4704785041853,
+                    "Station_07": 306.609756097561,
+                    "Station_08": 197.58536585365854,
+                    "Station_09": 131.0
                 }
             }
         },
-        "Filler_Train_00": {
-            "priority": 1,
+        "Train_05": {
+            "priority": 8,
             "direction": "UP",
-            "scheduled_departure": 200,
-            "scheduled_final_arrival": 851.089108910891,
-            "optimal_departure": 200.0,
-            "optimal_final_arrival": 872.1725601131614,
-            "final_delay_mins": 21.08345120227034,
+            "scheduled_departure": 187,
+            "scheduled_final_arrival": 628.09375,
+            "optimal_departure": 187.0,
+            "optimal_final_arrival": 639.3843298555315,
+            "final_delay_mins": 11.290579855531519,
             "actions": {
                 "hold_at_origin_mins": 0.0,
                 "loops_used_at": {}
             },
             "full_schedule_mins": {
                 "arrivals": {
-                    "Station_00": 200.0,
-                    "Station_01": 283.16831683168317,
-                    "Station_02": 346.73267326732673,
-                    "Station_03": 406.73267326732673,
-                    "Station_04": 494.05940594059405,
-                    "Station_05": 584.6478076379138,
-                    "Station_06": 652.9646393210821,
-                    "Station_07": 720.6874115983098,
-                    "Station_08": 784.845827439894,
-                    "Station_09": 872.1725601131614
+                    "Station_00": 0.0,
+                    "Station_01": 231.0625,
+                    "Station_02": 269.96875,
+                    "Station_03": 323.875,
+                    "Station_04": 375.90625,
+                    "Station_05": 426.53125,
+                    "Station_06": 483.2905798555315,
+                    "Station_07": 526.8843298555315,
+                    "Station_08": 596.7280798555315,
+                    "Station_09": 639.3843298555315
                 },
                 "departures": {
-                    "Station_00": 200.0,
-                    "Station_01": 283.16831683168317,
-                    "Station_02": 346.73267326732673,
-                    "Station_03": 406.73267326732673,
-                    "Station_04": 515.1428571428644,
-                    "Station_05": 584.6478076379138,
-                    "Station_06": 652.9646393210821,
-                    "Station_07": 720.6874115983098,
-                    "Station_08": 784.845827439894,
-                    "Station_09": 872.1725601131614
+                    "Station_00": 187.0,
+                    "Station_01": 231.0625,
+                    "Station_02": 269.96875,
+                    "Station_03": 323.875,
+                    "Station_04": 375.90625,
+                    "Station_05": 437.8218298555315,
+                    "Station_06": 483.2905798555315,
+                    "Station_07": 526.8843298555315,
+                    "Station_08": 596.7280798555315,
+                    "Station_09": null
                 }
             }
         },
-        "Filler_Train_01": {
+        "Train_06": {
+            "priority": 1,
+            "direction": "DOWN",
+            "scheduled_departure": 220,
+            "scheduled_final_arrival": 747.6635514018692,
+            "optimal_departure": 220.0,
+            "optimal_final_arrival": 942.3420560747605,
+            "final_delay_mins": 194.67850467289134,
+            "actions": {
+                "hold_at_origin_mins": 0.0,
+                "loops_used_at": {}
+            },
+            "full_schedule_mins": {
+                "arrivals": {
+                    "Station_00": 942.3420560747605,
+                    "Station_01": 889.6317757009288,
+                    "Station_02": 843.0897196261624,
+                    "Station_03": 778.6037383177512,
+                    "Station_04": 716.3607476635456,
+                    "Station_05": 586.8630018686713,
+                    "Station_06": 406.7289719626168,
+                    "Station_07": 354.57943925233644,
+                    "Station_08": 271.02803738317755,
+                    "Station_09": 0.0
+                },
+                "departures": {
+                    "Station_00": null,
+                    "Station_01": 889.6317757009288,
+                    "Station_02": 843.0897196261624,
+                    "Station_03": 778.6037383177512,
+                    "Station_04": 716.3607476635456,
+                    "Station_05": 655.7999999999942,
+                    "Station_06": 532.4704785041853,
+                    "Station_07": 354.57943925233644,
+                    "Station_08": 271.02803738317755,
+                    "Station_09": 220.0
+                }
+            }
+        },
+        "Train_07": {
             "priority": 5,
             "direction": "UP",
-            "scheduled_departure": 225,
-            "scheduled_final_arrival": 932.0967741935484,
-            "optimal_departure": 225.0,
-            "optimal_final_arrival": 932.0967741935484,
+            "scheduled_departure": 239,
+            "scheduled_final_arrival": 991.8,
+            "optimal_departure": 239.0,
+            "optimal_final_arrival": 991.8,
             "final_delay_mins": 0.0,
             "actions": {
                 "hold_at_origin_mins": 0.0,
@@ -133,457 +289,301 @@
             },
             "full_schedule_mins": {
                 "arrivals": {
-                    "Station_00": 225.0,
-                    "Station_01": 315.3225806451613,
-                    "Station_02": 384.35483870967744,
-                    "Station_03": 449.51612903225805,
-                    "Station_04": 544.3548387096774,
-                    "Station_05": 619.8387096774194,
-                    "Station_06": 694.0322580645161,
-                    "Station_07": 767.5806451612902,
-                    "Station_08": 837.258064516129,
-                    "Station_09": 932.0967741935484
+                    "Station_00": 0.0,
+                    "Station_01": 314.2,
+                    "Station_02": 380.6,
+                    "Station_03": 472.6,
+                    "Station_04": 561.4,
+                    "Station_05": 647.8,
+                    "Station_06": 725.4,
+                    "Station_07": 799.8,
+                    "Station_08": 919.0,
+                    "Station_09": 991.8
                 },
                 "departures": {
-                    "Station_00": 225.0,
-                    "Station_01": 315.3225806451613,
-                    "Station_02": 384.35483870967744,
-                    "Station_03": 449.5161290322581,
-                    "Station_04": 544.3548387096774,
-                    "Station_05": 619.8387096774194,
-                    "Station_06": 694.0322580645161,
-                    "Station_07": 767.5806451612902,
-                    "Station_08": 837.258064516129,
-                    "Station_09": 932.0967741935484
+                    "Station_00": 239.0,
+                    "Station_01": 314.2,
+                    "Station_02": 380.6,
+                    "Station_03": 472.6,
+                    "Station_04": 561.4,
+                    "Station_05": 647.8,
+                    "Station_06": 725.4,
+                    "Station_07": 799.8,
+                    "Station_08": 919.0,
+                    "Station_09": null
                 }
             }
         },
-        "Filler_Train_02": {
-            "priority": 1,
+        "Train_08": {
+            "priority": 10,
+            "direction": "DOWN",
+            "scheduled_departure": 105,
+            "scheduled_final_arrival": 675.3030303030303,
+            "optimal_departure": 105.0,
+            "optimal_final_arrival": 736.9134199134137,
+            "final_delay_mins": 61.610389610383436,
+            "actions": {
+                "hold_at_origin_mins": 0.0,
+                "loops_used_at": {}
+            },
+            "full_schedule_mins": {
+                "arrivals": {
+                    "Station_00": 736.9134199134137,
+                    "Station_01": 679.9437229437167,
+                    "Station_02": 629.6406926406864,
+                    "Station_03": 559.9437229437167,
+                    "Station_04": 492.67099567098944,
+                    "Station_05": 427.216450216444,
+                    "Station_06": 306.8181818181818,
+                    "Station_07": 250.45454545454544,
+                    "Station_08": 160.15151515151516,
+                    "Station_09": 0.0
+                },
+                "departures": {
+                    "Station_00": null,
+                    "Station_01": 679.9437229437167,
+                    "Station_02": 629.6406926406864,
+                    "Station_03": 559.9437229437167,
+                    "Station_04": 492.67099567098944,
+                    "Station_05": 427.216450216444,
+                    "Station_06": 368.4285714285652,
+                    "Station_07": 250.45454545454544,
+                    "Station_08": 160.15151515151516,
+                    "Station_09": 105.0
+                }
+            }
+        },
+        "Train_09": {
+            "priority": 3,
+            "direction": "DOWN",
+            "scheduled_departure": 131,
+            "scheduled_final_arrival": 617.7241379310344,
+            "optimal_departure": 131.0,
+            "optimal_final_arrival": 695.5267950440302,
+            "final_delay_mins": 77.8026571129958,
+            "actions": {
+                "hold_at_origin_mins": 0.0,
+                "loops_used_at": {}
+            },
+            "full_schedule_mins": {
+                "arrivals": {
+                    "Station_00": 695.5267950440302,
+                    "Station_01": 646.9061053888578,
+                    "Station_02": 603.9750709060992,
+                    "Station_03": 544.4923122854095,
+                    "Station_04": 487.07851918196127,
+                    "Station_05": 430.6009852216686,
+                    "Station_06": 303.2413793103448,
+                    "Station_07": 255.13793103448273,
+                    "Station_08": 178.06896551724137,
+                    "Station_09": 0.0
+                },
+                "departures": {
+                    "Station_00": null,
+                    "Station_01": 646.9061053888578,
+                    "Station_02": 603.9750709060992,
+                    "Station_03": 544.4923122854095,
+                    "Station_04": 487.07851918196127,
+                    "Station_05": 431.216450216444,
+                    "Station_06": 380.4285714285652,
+                    "Station_07": 255.13793103448273,
+                    "Station_08": 178.06896551724137,
+                    "Station_09": 131.0
+                }
+            }
+        },
+        "Train_10": {
+            "priority": 3,
             "direction": "UP",
-            "scheduled_departure": 250,
-            "scheduled_final_arrival": 1051.9512195121952,
-            "optimal_departure": 250.0,
-            "optimal_final_arrival": 1051.9512195121952,
-            "final_delay_mins": 0.0,
+            "scheduled_departure": 279,
+            "scheduled_final_arrival": 821.8846153846155,
+            "optimal_departure": 279.0,
+            "optimal_final_arrival": 847.196050229757,
+            "final_delay_mins": 25.311434845141548,
             "actions": {
                 "hold_at_origin_mins": 0.0,
                 "loops_used_at": {}
             },
             "full_schedule_mins": {
                 "arrivals": {
-                    "Station_00": 250.0,
-                    "Station_01": 352.4390243902439,
-                    "Station_02": 430.7317073170732,
-                    "Station_03": 504.6341463414634,
-                    "Station_04": 612.1951219512196,
-                    "Station_05": 697.8048780487806,
-                    "Station_06": 781.9512195121952,
-                    "Station_07": 865.3658536585366,
-                    "Station_08": 944.390243902439,
-                    "Station_09": 1051.9512195121952
+                    "Station_00": 0.0,
+                    "Station_01": 333.2307692307692,
+                    "Station_02": 381.11538461538464,
+                    "Station_03": 447.4615384615385,
+                    "Station_04": 511.50000000000006,
+                    "Station_05": 578.3331312881888,
+                    "Station_06": 655.0806656143724,
+                    "Station_07": 708.7345117682186,
+                    "Station_08": 794.696050229757,
+                    "Station_09": 847.196050229757
                 },
                 "departures": {
-                    "Station_00": 250.0,
-                    "Station_01": 352.4390243902439,
-                    "Station_02": 430.7317073170732,
-                    "Station_03": 504.63414634146346,
-                    "Station_04": 612.1951219512196,
-                    "Station_05": 697.8048780487806,
-                    "Station_06": 781.9512195121952,
-                    "Station_07": 865.3658536585366,
-                    "Station_08": 944.390243902439,
-                    "Station_09": 1051.9512195121952
+                    "Station_00": 279.0,
+                    "Station_01": 333.2307692307692,
+                    "Station_02": 381.11538461538464,
+                    "Station_03": 447.4615384615385,
+                    "Station_04": 516.0254389804966,
+                    "Station_05": 599.1191271528339,
+                    "Station_06": 655.0806656143724,
+                    "Station_07": 708.7345117682186,
+                    "Station_08": 794.696050229757,
+                    "Station_09": null
                 }
             }
         },
-        "Filler_Train_03": {
-            "priority": 1,
-            "direction": "UP",
-            "scheduled_departure": 275,
-            "scheduled_final_arrival": 960.0,
-            "optimal_departure": 275.0,
-            "optimal_final_arrival": 960.0,
-            "final_delay_mins": 0.0,
-            "actions": {
-                "hold_at_origin_mins": 0.0,
-                "loops_used_at": {}
-            },
-            "full_schedule_mins": {
-                "arrivals": {
-                    "Station_00": 275.0,
-                    "Station_01": 362.5,
-                    "Station_02": 429.375,
-                    "Station_03": 492.5,
-                    "Station_04": 584.375,
-                    "Station_05": 657.5,
-                    "Station_06": 729.375,
-                    "Station_07": 800.625,
-                    "Station_08": 868.125,
-                    "Station_09": 960.0
-                },
-                "departures": {
-                    "Station_00": 275.0,
-                    "Station_01": 362.5,
-                    "Station_02": 429.375,
-                    "Station_03": 492.5,
-                    "Station_04": 584.375,
-                    "Station_05": 657.5,
-                    "Station_06": 729.375,
-                    "Station_07": 800.625,
-                    "Station_08": 868.125,
-                    "Station_09": 960.0
-                }
-            }
-        },
-        "Filler_Train_04": {
+        "Train_11": {
             "priority": 5,
-            "direction": "UP",
-            "scheduled_departure": 300,
-            "scheduled_final_arrival": 1064.6511627906978,
-            "optimal_departure": 300.0,
-            "optimal_final_arrival": 1072.6296958737319,
-            "final_delay_mins": 7.978533083034108,
+            "direction": "DOWN",
+            "scheduled_departure": 151,
+            "scheduled_final_arrival": 710.0099009900988,
+            "optimal_departure": 151.0,
+            "optimal_final_arrival": 738.780806652088,
+            "final_delay_mins": 28.770905661989218,
             "actions": {
                 "hold_at_origin_mins": 0.0,
                 "loops_used_at": {}
             },
             "full_schedule_mins": {
                 "arrivals": {
-                    "Station_00": 300.0,
-                    "Station_01": 397.6744186046512,
-                    "Station_02": 472.3255813953489,
-                    "Station_03": 542.7906976744187,
-                    "Station_04": 653.3273702923362,
-                    "Station_05": 734.9552772690807,
-                    "Station_06": 815.1878354086156,
-                    "Station_07": 894.7227191295458,
-                    "Station_08": 970.0715563388482,
-                    "Station_09": 1072.6296958737319
+                    "Station_00": 738.780806652088,
+                    "Station_01": 682.9392224936722,
+                    "Station_02": 633.632291800603,
+                    "Station_03": 565.3154601174347,
+                    "Station_04": 499.3748660580288,
+                    "Station_05": 434.0523338048028,
+                    "Station_06": 348.8217821782178,
+                    "Station_07": 293.57425742574253,
+                    "Station_08": 205.05940594059405,
+                    "Station_09": 0.0
                 },
                 "departures": {
-                    "Station_00": 300.0,
-                    "Station_01": 397.6744186046512,
-                    "Station_02": 472.3255813953489,
-                    "Station_03": 550.7692307574525,
-                    "Station_04": 653.3273702923366,
-                    "Station_05": 734.9552772690807,
-                    "Station_06": 815.1878354086156,
-                    "Station_07": 894.7227191295458,
-                    "Station_08": 970.0715563388482,
-                    "Station_09": 1072.6296958737319
+                    "Station_00": null,
+                    "Station_01": 682.9392224936722,
+                    "Station_02": 633.632291800603,
+                    "Station_03": 565.3154601174347,
+                    "Station_04": 499.3748660580288,
+                    "Station_05": 435.2164502164446,
+                    "Station_06": 376.4285714285652,
+                    "Station_07": 293.57425742574253,
+                    "Station_08": 205.05940594059405,
+                    "Station_09": 151.0
                 }
             }
         },
-        "Filler_Train_05": {
+        "Train_12": {
+            "priority": 3,
+            "direction": "DOWN",
+            "scheduled_departure": 295,
+            "scheduled_final_arrival": 871.1224489795919,
+            "optimal_departure": 295.0,
+            "optimal_final_arrival": 964.657142857137,
+            "final_delay_mins": 93.53469387754512,
+            "actions": {
+                "hold_at_origin_mins": 0.0,
+                "loops_used_at": {}
+            },
+            "full_schedule_mins": {
+                "arrivals": {
+                    "Station_00": 964.657142857137,
+                    "Station_01": 907.1061224489738,
+                    "Station_02": 856.2897959183615,
+                    "Station_03": 785.8816326530554,
+                    "Station_04": 717.922448979586,
+                    "Station_05": 587.8582336062261,
+                    "Station_06": 498.8775510204082,
+                    "Station_07": 441.9387755102041,
+                    "Station_08": 350.7142857142857,
+                    "Station_09": 0.0
+                },
+                "departures": {
+                    "Station_00": null,
+                    "Station_01": 907.1061224489738,
+                    "Station_02": 856.2897959183615,
+                    "Station_03": 785.8816326530554,
+                    "Station_04": 717.922448979586,
+                    "Station_05": 651.7999999999942,
+                    "Station_06": 528.4704785041853,
+                    "Station_07": 441.9387755102041,
+                    "Station_08": 350.7142857142857,
+                    "Station_09": 295.0
+                }
+            }
+        },
+        "Train_13": {
+            "priority": 3,
+            "direction": "DOWN",
+            "scheduled_departure": 210,
+            "scheduled_final_arrival": 972.9729729729731,
+            "optimal_departure": 210.0,
+            "optimal_final_arrival": 1062.1243243243184,
+            "final_delay_mins": 89.15135135134528,
+            "actions": {
+                "hold_at_origin_mins": 0.0,
+                "loops_used_at": {}
+            },
+            "full_schedule_mins": {
+                "arrivals": {
+                    "Station_00": 1062.1243243243184,
+                    "Station_01": 985.9081081081023,
+                    "Station_02": 918.610810810805,
+                    "Station_03": 825.3675675675618,
+                    "Station_04": 735.3675675675618,
+                    "Station_05": 599.1191271528339,
+                    "Station_06": 480.00000000000006,
+                    "Station_07": 404.59459459459464,
+                    "Station_08": 283.7837837837838,
+                    "Station_09": 0.0
+                },
+                "departures": {
+                    "Station_00": null,
+                    "Station_01": 985.9081081081023,
+                    "Station_02": 918.610810810805,
+                    "Station_03": 825.3675675675618,
+                    "Station_04": 735.3675675675618,
+                    "Station_05": 647.7999999999942,
+                    "Station_06": 520.4704785041853,
+                    "Station_07": 404.59459459459464,
+                    "Station_08": 283.7837837837838,
+                    "Station_09": 210.0
+                }
+            }
+        },
+        "Train_14": {
             "priority": 1,
-            "direction": "UP",
-            "scheduled_departure": 325,
-            "scheduled_final_arrival": 1024.5744680851064,
-            "optimal_departure": 325.0,
-            "optimal_final_arrival": 1028.2160392798762,
-            "final_delay_mins": 3.6415711947697673,
+            "direction": "DOWN",
+            "scheduled_departure": 194,
+            "scheduled_final_arrival": 707.2727272727271,
+            "optimal_departure": 194.0,
+            "optimal_final_arrival": 721.9437229319915,
+            "final_delay_mins": 14.67099565926435,
             "actions": {
                 "hold_at_origin_mins": 0.0,
                 "loops_used_at": {}
             },
             "full_schedule_mins": {
                 "arrivals": {
-                    "Station_00": 325.0,
-                    "Station_01": 414.36170212765956,
-                    "Station_02": 482.6595744680851,
-                    "Station_03": 547.1276595744681,
-                    "Station_04": 644.5990180032805,
-                    "Station_05": 719.2798690671102,
-                    "Station_06": 792.6841243862591,
-                    "Station_07": 865.4500818330677,
-                    "Station_08": 934.3862520458337,
-                    "Station_09": 1028.2160392798762
+                    "Station_00": 721.9437229319915,
+                    "Station_01": 670.6709956592642,
+                    "Station_02": 625.398268386537,
+                    "Station_03": 562.6709956592642,
+                    "Station_04": 502.12554111380973,
+                    "Station_05": 437.33766233765607,
+                    "Station_06": 375.6363636363636,
+                    "Station_07": 324.9090909090909,
+                    "Station_08": 243.63636363636363,
+                    "Station_09": 0.0
                 },
                 "departures": {
-                    "Station_00": 325.0,
-                    "Station_01": 414.36170212765956,
-                    "Station_02": 482.6595744680851,
-                    "Station_03": 550.7692307692307,
-                    "Station_04": 644.5990180032804,
-                    "Station_05": 719.2798690671102,
-                    "Station_06": 792.6841243862591,
-                    "Station_07": 865.4500818330677,
-                    "Station_08": 934.3862520458337,
-                    "Station_09": 1028.2160392798762
-                }
-            }
-        },
-        "Filler_Train_06": {
-            "priority": 1,
-            "direction": "UP",
-            "scheduled_departure": 350,
-            "scheduled_final_arrival": 982.3076923076922,
-            "optimal_departure": 350.0,
-            "optimal_final_arrival": 982.3076923076922,
-            "final_delay_mins": 0.0,
-            "actions": {
-                "hold_at_origin_mins": 0.0,
-                "loops_used_at": {}
-            },
-            "full_schedule_mins": {
-                "arrivals": {
-                    "Station_00": 350.0,
-                    "Station_01": 430.7692307692308,
-                    "Station_02": 492.5,
-                    "Station_03": 550.7692307692307,
-                    "Station_04": 635.576923076923,
-                    "Station_05": 703.076923076923,
-                    "Station_06": 769.4230769230768,
-                    "Station_07": 835.1923076923076,
-                    "Station_08": 897.4999999999999,
-                    "Station_09": 982.3076923076922
-                },
-                "departures": {
-                    "Station_00": 350.0,
-                    "Station_01": 430.7692307692308,
-                    "Station_02": 492.5,
-                    "Station_03": 550.7692307626577,
-                    "Station_04": 635.5769230769247,
-                    "Station_05": 703.076923076923,
-                    "Station_06": 769.4230769230768,
-                    "Station_07": 835.1923076923076,
-                    "Station_08": 897.4999999999999,
-                    "Station_09": 982.3076923076922
-                }
-            }
-        },
-        "Filler_Train_07": {
-            "priority": 5,
-            "direction": "UP",
-            "scheduled_departure": 375,
-            "scheduled_final_arrival": 1082.0967741935483,
-            "optimal_departure": 375.0,
-            "optimal_final_arrival": 1082.0967741935483,
-            "final_delay_mins": 0.0,
-            "actions": {
-                "hold_at_origin_mins": 0.0,
-                "loops_used_at": {}
-            },
-            "full_schedule_mins": {
-                "arrivals": {
-                    "Station_00": 375.0,
-                    "Station_01": 465.3225806451613,
-                    "Station_02": 534.3548387096774,
-                    "Station_03": 599.516129032258,
-                    "Station_04": 694.3548387096774,
-                    "Station_05": 769.8387096774194,
-                    "Station_06": 844.0322580645161,
-                    "Station_07": 917.5806451612902,
-                    "Station_08": 987.258064516129,
-                    "Station_09": 1082.0967741935483
-                },
-                "departures": {
-                    "Station_00": 375.0,
-                    "Station_01": 465.3225806451613,
-                    "Station_02": 534.3548387096774,
-                    "Station_03": 599.516129032258,
-                    "Station_04": 694.3548387096774,
-                    "Station_05": 769.8387096774194,
-                    "Station_06": 844.0322580645161,
-                    "Station_07": 917.5806451612902,
-                    "Station_08": 987.258064516129,
-                    "Station_09": 1082.0967741935483
-                }
-            }
-        },
-        "Filler_Train_08": {
-            "priority": 3,
-            "direction": "UP",
-            "scheduled_departure": 400,
-            "scheduled_final_arrival": 1182.857142857143,
-            "optimal_departure": 400.0,
-            "optimal_final_arrival": 1182.857142857143,
-            "final_delay_mins": 0.0,
-            "actions": {
-                "hold_at_origin_mins": 0.0,
-                "loops_used_at": {}
-            },
-            "full_schedule_mins": {
-                "arrivals": {
-                    "Station_00": 400.0,
-                    "Station_01": 500.0,
-                    "Station_02": 576.4285714285714,
-                    "Station_03": 648.5714285714286,
-                    "Station_04": 753.5714285714286,
-                    "Station_05": 837.1428571428571,
-                    "Station_06": 919.2857142857142,
-                    "Station_07": 1000.7142857142857,
-                    "Station_08": 1077.857142857143,
-                    "Station_09": 1182.857142857143
-                },
-                "departures": {
-                    "Station_00": 400.0,
-                    "Station_01": 500.0,
-                    "Station_02": 576.4285714285714,
-                    "Station_03": 648.5714285714286,
-                    "Station_04": 753.5714285714286,
-                    "Station_05": 837.1428571428571,
-                    "Station_06": 919.2857142857142,
-                    "Station_07": 1000.7142857142857,
-                    "Station_08": 1077.857142857143,
-                    "Station_09": 1182.857142857143
-                }
-            }
-        },
-        "Filler_Train_09": {
-            "priority": 3,
-            "direction": "UP",
-            "scheduled_departure": 425,
-            "scheduled_final_arrival": 1217.2891566265062,
-            "optimal_departure": 425.0,
-            "optimal_final_arrival": 1229.6319824753818,
-            "final_delay_mins": 12.342825848875691,
-            "actions": {
-                "hold_at_origin_mins": 0.0,
-                "loops_used_at": {}
-            },
-            "full_schedule_mins": {
-                "arrivals": {
-                    "Station_00": 425.0,
-                    "Station_01": 526.2048192771084,
-                    "Station_02": 603.5542168674699,
-                    "Station_03": 676.566265060241,
-                    "Station_04": 792.1741511500475,
-                    "Station_05": 879.7524644030926,
-                    "Station_06": 962.8849945235745,
-                    "Station_07": 1045.2946330777913,
-                    "Station_08": 1123.3669222344179,
-                    "Station_09": 1229.6319824753818
-                },
-                "departures": {
-                    "Station_00": 425.0,
-                    "Station_01": 526.2048192771084,
-                    "Station_02": 603.5542168674699,
-                    "Station_03": 685.909090909091,
-                    "Station_04": 795.1741511500807,
-                    "Station_05": 879.7524644030926,
-                    "Station_06": 962.8849945235745,
-                    "Station_07": 1045.2946330777913,
-                    "Station_08": 1123.3669222344179,
-                    "Station_09": 1229.6319824753818
-                }
-            }
-        },
-        "Filler_Train_10": {
-            "priority": 3,
-            "direction": "UP",
-            "scheduled_departure": 450,
-            "scheduled_final_arrival": 1242.2891566265062,
-            "optimal_departure": 450.0,
-            "optimal_final_arrival": 1243.441338168207,
-            "final_delay_mins": 1.1521815417008838,
-            "actions": {
-                "hold_at_origin_mins": 0.0,
-                "loops_used_at": {}
-            },
-            "full_schedule_mins": {
-                "arrivals": {
-                    "Station_00": 450.0,
-                    "Station_01": 551.2048192771084,
-                    "Station_02": 628.5542168674699,
-                    "Station_03": 701.566265060241,
-                    "Station_04": 808.9835068429056,
-                    "Station_05": 893.5618200959177,
-                    "Station_06": 976.6943502163996,
-                    "Station_07": 1059.1039887706165,
-                    "Station_08": 1137.176277927243,
-                    "Station_09": 1243.441338168207
-                },
-                "departures": {
-                    "Station_00": 450.0,
-                    "Station_01": 551.2048192771084,
-                    "Station_02": 628.5542168674699,
-                    "Station_03": 702.7184466019418,
-                    "Station_04": 808.9835068429056,
-                    "Station_05": 893.5618200959177,
-                    "Station_06": 976.6943502163996,
-                    "Station_07": 1059.1039887706165,
-                    "Station_08": 1137.176277927243,
-                    "Station_09": 1243.441338168207
-                }
-            }
-        },
-        "Filler_Train_11": {
-            "priority": 3,
-            "direction": "UP",
-            "scheduled_departure": 475,
-            "scheduled_final_arrival": 1139.2424242424242,
-            "optimal_departure": 475.0,
-            "optimal_final_arrival": 1139.2424242424245,
-            "final_delay_mins": 2.2737367544323206e-13,
-            "actions": {
-                "hold_at_origin_mins": 0.0,
-                "loops_used_at": {}
-            },
-            "full_schedule_mins": {
-                "arrivals": {
-                    "Station_00": 475.0,
-                    "Station_01": 559.8484848484849,
-                    "Station_02": 624.6969696969697,
-                    "Station_03": 685.909090909091,
-                    "Station_04": 775.0000000000001,
-                    "Station_05": 845.9090909090912,
-                    "Station_06": 915.606060606061,
-                    "Station_07": 984.6969696969701,
-                    "Station_08": 1050.1515151515155,
-                    "Station_09": 1139.2424242424245
-                },
-                "departures": {
-                    "Station_00": 475.0,
-                    "Station_01": 559.8484848484849,
-                    "Station_02": 624.6969696969697,
-                    "Station_03": 685.909090909091,
-                    "Station_04": 775.0000000000001,
-                    "Station_05": 845.9090909090912,
-                    "Station_06": 915.606060606061,
-                    "Station_07": 984.6969696969701,
-                    "Station_08": 1050.1515151515155,
-                    "Station_09": 1139.2424242424245
-                }
-            }
-        },
-        "Filler_Train_12": {
-            "priority": 1,
-            "direction": "UP",
-            "scheduled_departure": 500,
-            "scheduled_final_arrival": 1138.4466019417475,
-            "optimal_departure": 500.0,
-            "optimal_final_arrival": 1145.2712385287173,
-            "final_delay_mins": 6.824636586969746,
-            "actions": {
-                "hold_at_origin_mins": 0.0,
-                "loops_used_at": {}
-            },
-            "full_schedule_mins": {
-                "arrivals": {
-                    "Station_00": 500.0,
-                    "Station_01": 581.5533980582525,
-                    "Station_02": 643.8834951456311,
-                    "Station_03": 702.7184466019418,
-                    "Station_04": 795.1741511500614,
-                    "Station_05": 863.3294909559017,
-                    "Station_06": 930.3197822180376,
-                    "Station_07": 996.7275492083289,
-                    "Station_08": 1059.6401705675523,
-                    "Station_09": 1145.2712385287173
-                },
-                "departures": {
-                    "Station_00": 500.0,
-                    "Station_01": 581.5533980582525,
-                    "Station_02": 643.8834951456311,
-                    "Station_03": 702.7184466019418,
-                    "Station_04": 795.1741511500766,
-                    "Station_05": 863.3294909559017,
-                    "Station_06": 930.3197822180376,
-                    "Station_07": 996.7275492083289,
-                    "Station_08": 1059.6401705675523,
-                    "Station_09": 1145.2712385287173
+                    "Station_00": null,
+                    "Station_01": 670.6709956592642,
+                    "Station_02": 625.398268386537,
+                    "Station_03": 562.6709956592642,
+                    "Station_04": 502.12554111380973,
+                    "Station_05": 443.21645020471885,
+                    "Station_06": 384.4285714285652,
+                    "Station_07": 324.9090909090909,
+                    "Station_08": 243.63636363636363,
+                    "Station_09": 194.0
                 }
             }
         }

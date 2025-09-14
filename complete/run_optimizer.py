@@ -6,13 +6,15 @@ import pandas as pd
 from pathlib import Path
 
 def run_optimization(scenario_data):
-    """Solves a large-scale, bi-directional scheduling problem."""
+    """
+    Solves a large-scale, bi-directional scheduling problem with enhanced constraints.
+    """
     
     train_data = scenario_data["train_data"]
     section_data = scenario_data["section_data"]
     op_params = scenario_data["op_params"]
 
-    print("--- Preparing and running the bi-directional optimization model ---")
+    print("--- Preparing and running the enhanced bi-directional optimization model ---")
 
     STATIONS = section_data['stations']
     for tid, train in train_data.items():
@@ -22,93 +24,82 @@ def run_optimization(scenario_data):
         train['origin'] = origin
         train['destination'] = destination
 
-        # Calculate scheduled arrival based on path
+        # Calculate scheduled arrival based on a clear path
         train['scheduled_arrival_final'] = train['dep_A_mins']
         path = STATIONS if train['direction'] == 'UP' else list(reversed(STATIONS))
         for i in range(len(path) - 1):
             start_s, end_s = path[i], path[i+1]
-            # Segment names are always Station_A_to_Station_B format
-            segment_name = f"{min(start_s, end_s)}_to_{max(start_s, end_s)}"
+            segment_name = f"{start_s}_to_{end_s}" if f"{start_s}_to_{end_s}" in section_data['segments'] else f"{end_s}_to_{start_s}"
             segment = section_data['segments'][segment_name]
             train['scheduled_arrival_final'] += (segment['length'] / train['base_speed_kph']) * 60
 
-    prob = pulp.LpProblem("BiDirectionalSchedule", pulp.LpMinimize)
+    prob = pulp.LpProblem("EnhancedBiDirectionalSchedule", pulp.LpMinimize)
     
     TRAINS = list(train_data.keys())
     SEGMENTS = list(section_data['segments'].keys())
     TRAIN_PAIRS = [(t1, t2) for t1 in TRAINS for t2 in TRAINS if t1 < t2]
 
-    arrival_time = pulp.LpVariable.dicts("ArrTime", (TRAINS, STATIONS), lowBound=None)
-    departure_time = pulp.LpVariable.dicts("DepTime", (TRAINS, STATIONS), lowBound=None)
+    arrival_time = pulp.LpVariable.dicts("ArrTime", (TRAINS, STATIONS), lowBound=0)
+    departure_time = pulp.LpVariable.dicts("DepTime", (TRAINS, STATIONS), lowBound=0)
     uses_loop = pulp.LpVariable.dicts("UsesLoop", (TRAINS, STATIONS), cat='Binary')
     hold_at_origin = pulp.LpVariable.dicts("HoldAtOrigin", TRAINS, lowBound=0)
     
-    # This variable decides which train gets priority on a single-track segment
     gets_block_first = pulp.LpVariable.dicts("GetsBlockFirst", (TRAIN_PAIRS, SEGMENTS), cat='Binary')
 
+    # Enhanced cost function
     weighted_delay = pulp.lpSum(
-        (arrival_time[t][train_data[t]['destination']] - train_data[t]['scheduled_arrival_final']) * train_data[t]['priority'] for t in TRAINS
+        (arrival_time[t][train_data[t]['destination']] - train_data[t]['scheduled_arrival_final']) * (train_data[t]['priority'] ** 1.5) for t in TRAINS
     )
-    hold_cost = pulp.lpSum(hold_at_origin[t] * op_params['hold_penalty_per_min'] for t in TRAINS)
+    hold_cost = pulp.lpSum(hold_at_origin[t] * op_params['hold_penalty_per_min'] * train_data[t]['priority'] for t in TRAINS)
     loop_cost = pulp.lpSum(uses_loop[t][s] * op_params['loop_penalty'] for t in TRAINS for s in STATIONS)
     
-    prob += weighted_delay + hold_cost + loop_cost, "Minimize_Total_Cost"
+    prob += weighted_delay + hold_cost + loop_cost, "Minimize_Total_System_Cost"
 
     M = 100000 
     HEADWAY = op_params['headway_mins']
 
     for t in TRAINS:
         train = train_data[t]
-        origin = train['origin']
+        origin, destination = train['origin'], train['destination']
         path = STATIONS if train['direction'] == 'UP' else list(reversed(STATIONS))
         
         prob += departure_time[t][origin] == train['dep_A_mins'] + hold_at_origin[t], f"InitialDep_{t}"
 
         for i in range(len(path)):
             station_name = path[i]
-            prob += departure_time[t][station_name] >= arrival_time[t][station_name] + (uses_loop[t][station_name] * train['stop_penalty_mins']), f"Dwell_{t}_{station_name}"
+            if station_name != destination:
+                prob += departure_time[t][station_name] >= arrival_time[t][station_name] + (uses_loop[t][station_name] * train['stop_penalty_mins']), f"Dwell_{t}_{station_name}"
             if i < len(path) - 1:
                 start_s, end_s = path[i], path[i+1]
-                segment_name = f"{min(start_s, end_s)}_to_{max(start_s, end_s)}"
+                segment_name = f"{start_s}_to_{end_s}" if f"{start_s}_to_{end_s}" in section_data['segments'] else f"{end_s}_to_{start_s}"
                 segment = section_data['segments'][segment_name]
                 travel_time = (segment['length'] / train['base_speed_kph']) * 60
                 prob += arrival_time[t][end_s] >= departure_time[t][start_s] + travel_time, f"RunTime_{t}_{segment_name}"
 
-    for i in range(len(STATIONS) - 1):
-        station_name = STATIONS[i]
+    for station_name in STATIONS:
         prob += pulp.lpSum(uses_loop[t][station_name] for t in TRAINS) <= op_params['loop_lines_at_stations'], f"LoopCapacity_{station_name}"
 
-    # --- NEW: CONFLICT CONSTRAINTS FOR ALL PAIRS ON SINGLE TRACKS ---
+    # Conflict constraints for single track segments
     for segment_name, segment in section_data['segments'].items():
         if segment['type'] == 'single':
+            start_s, end_s = segment_name.split('_to_')
             for t1, t2 in TRAIN_PAIRS:
-                start_s = segment_name.split('_to_')[0]
-                end_s = segment_name.split('_to_')[1]
-
-                dir1 = train_data[t1]['direction']
-                dir2 = train_data[t2]['direction']
-
-                # Case 1: Same direction on single track (overtake prevention)
-                if dir1 == dir2:
-                    dep_s = start_s if dir1 == 'UP' else end_s
-                    arr_s = end_s if dir1 == 'UP' else start_s
-                    prob += departure_time[t2][dep_s] >= departure_time[t1][dep_s] - M * (1 - gets_block_first[t1,t2][segment_name])
-                    prob += departure_time[t1][dep_s] >= departure_time[t2][dep_s] - M * gets_block_first[t1,t2][segment_name]
-                    prob += arrival_time[t2][arr_s] >= arrival_time[t1][arr_s] + HEADWAY - M * (1 - gets_block_first[t1,t2][segment_name])
-                    prob += arrival_time[t1][arr_s] >= arrival_time[t2][arr_s] + HEADWAY - M * gets_block_first[t1,t2][segment_name]
+                dir1, dir2 = train_data[t1]['direction'], train_data[t2]['direction']
                 
-                # Case 2: Opposite direction on single track (head-on prevention)
+                # Overtake prevention (same direction)
+                if dir1 == dir2:
+                    dep_s, arr_s = (start_s, end_s) if dir1 == 'UP' else (end_s, start_s)
+                    prob += departure_time[t2][dep_s] >= departure_time[t1][dep_s] + HEADWAY - M * (1 - gets_block_first[t1, t2][segment_name])
+                    prob += departure_time[t1][dep_s] >= departure_time[t2][dep_s] + HEADWAY - M * gets_block_first[t1, t2][segment_name]
+                
+                # Head-on prevention (opposite directions)
                 else:
-                    up_train = t1 if dir1 == 'UP' else t2
-                    down_train = t2 if dir1 == 'UP' else t1
-                    # One must clear the block before the other enters.
-                    # If UP train gets block first: DOWN train must depart its entry station AFTER UP train arrives there.
-                    prob += departure_time[down_train][end_s] >= arrival_time[up_train][end_s] - M * (1 - gets_block_first[t1,t2][segment_name])
-                    # If DOWN train gets block first: UP train must depart its entry station AFTER DOWN train arrives there.
-                    prob += departure_time[up_train][start_s] >= arrival_time[down_train][start_s] - M * gets_block_first[t1,t2][segment_name]
+                    up_train, down_train = (t1, t2) if dir1 == 'UP' else (t2, t1)
+                    prob += departure_time[down_train][end_s] >= arrival_time[up_train][end_s] - M * (1 - gets_block_first[t1, t2][segment_name])
+                    prob += departure_time[up_train][start_s] >= arrival_time[down_train][start_s] - M * gets_block_first[t1, t2][segment_name]
 
-    print("Solving with HiGHS... This may take a couple of minutes.")
-    solver = pulp.HiGHS(timeLimit=120, msg=False)
+    print("Solving with HiGHS... This may take a few minutes.")
+    solver = pulp.HiGHS(timeLimit=180, msg=True)
     prob.solve(solver)
 
     results = {
@@ -118,7 +109,7 @@ def run_optimization(scenario_data):
     }
     
     if pulp.LpStatus[prob.status] == 'Optimal':
-        print(f"Solver found a valid solution with status: {pulp.LpStatus[prob.status]}")
+        print(f"Optimal solution found: {pulp.LpStatus[prob.status]}")
         for t in TRAINS:
             res = {
                 "priority": train_data[t]['priority'], "direction": train_data[t]['direction'],
@@ -138,7 +129,7 @@ def run_optimization(scenario_data):
             }
             results["train_results"][t] = res
     else:
-        results["remarks"] = ["Solver could not find a feasible or optimal solution."]
+        results["remarks"] = ["Solver failed to find an optimal solution within the time limit."]
 
     return results
 
@@ -156,4 +147,4 @@ if __name__ == "__main__":
         with open(output_path, 'w') as f:
             json.dump(optimization_results, f, indent=4)
         
-        print(f"\nOptimization complete. Technical results saved to '{output_path}'")
+        print(f"\nOptimization complete. Results saved to '{output_path}'")

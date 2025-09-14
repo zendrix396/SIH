@@ -1,110 +1,110 @@
 {
-    "scenario_name": "Head-On Conflict Scenario",
+    "scenario_name": "Complex Mixed Traffic Scenario",
     "train_data": {
-        "UP_Express": {
-            "priority": 10,
-            "base_speed_kph": 130,
-            "dep_A_mins": 50,
-            "stop_penalty_mins": 5,
+        "Train_00": {
+            "priority": 5,
+            "base_speed_kph": 74,
+            "dep_A_mins": 7,
+            "stop_penalty_mins": 8,
             "direction": "UP"
         },
-        "DOWN_Goods": {
+        "Train_01": {
+            "priority": 3,
+            "base_speed_kph": 73,
+            "dep_A_mins": 153,
+            "stop_penalty_mins": 11,
+            "direction": "UP"
+        },
+        "Train_02": {
+            "priority": 3,
+            "base_speed_kph": 105,
+            "dep_A_mins": 21,
+            "stop_penalty_mins": 11,
+            "direction": "UP"
+        },
+        "Train_03": {
+            "priority": 3,
+            "base_speed_kph": 89,
+            "dep_A_mins": 85,
+            "stop_penalty_mins": 6,
+            "direction": "DOWN"
+        },
+        "Train_04": {
             "priority": 1,
-            "base_speed_kph": 70,
-            "dep_A_mins": 0,
+            "base_speed_kph": 82,
+            "dep_A_mins": 131,
+            "stop_penalty_mins": 9,
+            "direction": "DOWN"
+        },
+        "Train_05": {
+            "priority": 8,
+            "base_speed_kph": 128,
+            "dep_A_mins": 187,
+            "stop_penalty_mins": 11,
+            "direction": "UP"
+        },
+        "Train_06": {
+            "priority": 1,
+            "base_speed_kph": 107,
+            "dep_A_mins": 220,
+            "stop_penalty_mins": 8,
+            "direction": "DOWN"
+        },
+        "Train_07": {
+            "priority": 5,
+            "base_speed_kph": 75,
+            "dep_A_mins": 239,
+            "stop_penalty_mins": 9,
+            "direction": "UP"
+        },
+        "Train_08": {
+            "priority": 10,
+            "base_speed_kph": 99,
+            "dep_A_mins": 105,
+            "stop_penalty_mins": 9,
+            "direction": "DOWN"
+        },
+        "Train_09": {
+            "priority": 3,
+            "base_speed_kph": 116,
+            "dep_A_mins": 131,
             "stop_penalty_mins": 10,
             "direction": "DOWN"
         },
-        "Filler_Train_00": {
-            "priority": 1,
-            "base_speed_kph": 101,
-            "dep_A_mins": 200,
-            "stop_penalty_mins": 5,
-            "direction": "UP"
-        },
-        "Filler_Train_01": {
-            "priority": 5,
-            "base_speed_kph": 93,
-            "dep_A_mins": 225,
-            "stop_penalty_mins": 5,
-            "direction": "UP"
-        },
-        "Filler_Train_02": {
-            "priority": 1,
-            "base_speed_kph": 82,
-            "dep_A_mins": 250,
-            "stop_penalty_mins": 6,
-            "direction": "UP"
-        },
-        "Filler_Train_03": {
-            "priority": 1,
-            "base_speed_kph": 96,
-            "dep_A_mins": 275,
-            "stop_penalty_mins": 5,
-            "direction": "UP"
-        },
-        "Filler_Train_04": {
-            "priority": 5,
-            "base_speed_kph": 86,
-            "dep_A_mins": 300,
-            "stop_penalty_mins": 8,
-            "direction": "UP"
-        },
-        "Filler_Train_05": {
-            "priority": 1,
-            "base_speed_kph": 94,
-            "dep_A_mins": 325,
-            "stop_penalty_mins": 7,
-            "direction": "UP"
-        },
-        "Filler_Train_06": {
-            "priority": 1,
+        "Train_10": {
+            "priority": 3,
             "base_speed_kph": 104,
-            "dep_A_mins": 350,
-            "stop_penalty_mins": 6,
+            "dep_A_mins": 279,
+            "stop_penalty_mins": 7,
             "direction": "UP"
         },
-        "Filler_Train_07": {
+        "Train_11": {
             "priority": 5,
-            "base_speed_kph": 93,
-            "dep_A_mins": 375,
-            "stop_penalty_mins": 7,
-            "direction": "UP"
+            "base_speed_kph": 101,
+            "dep_A_mins": 151,
+            "stop_penalty_mins": 11,
+            "direction": "DOWN"
         },
-        "Filler_Train_08": {
+        "Train_12": {
             "priority": 3,
-            "base_speed_kph": 84,
-            "dep_A_mins": 400,
-            "stop_penalty_mins": 6,
-            "direction": "UP"
-        },
-        "Filler_Train_09": {
-            "priority": 3,
-            "base_speed_kph": 83,
-            "dep_A_mins": 425,
+            "base_speed_kph": 98,
+            "dep_A_mins": 295,
             "stop_penalty_mins": 5,
-            "direction": "UP"
+            "direction": "DOWN"
         },
-        "Filler_Train_10": {
+        "Train_13": {
             "priority": 3,
-            "base_speed_kph": 83,
-            "dep_A_mins": 450,
-            "stop_penalty_mins": 7,
-            "direction": "UP"
+            "base_speed_kph": 74,
+            "dep_A_mins": 210,
+            "stop_penalty_mins": 9,
+            "direction": "DOWN"
         },
-        "Filler_Train_11": {
-            "priority": 3,
-            "base_speed_kph": 99,
-            "dep_A_mins": 475,
-            "stop_penalty_mins": 7,
-            "direction": "UP"
-        },
-        "Filler_Train_12": {
+        "Train_14": {
             "priority": 1,
-            "base_speed_kph": 103,
-            "dep_A_mins": 500,
-            "stop_penalty_mins": 8,
-            "direction": "UP"
+            "base_speed_kph": 110,
+            "dep_A_mins": 194,
+            "stop_penalty_mins": 11,
+            "direction": "DOWN"
         }
     },
     "section_data": {
@@ -123,64 +123,64 @@
         "segments": {
             "Station_00_to_Station_01": {
                 "start_pos": 0,
-                "end_pos": 140,
-                "length": 140,
+                "end_pos": 94,
+                "length": 94,
                 "type": "double"
             },
             "Station_01_to_Station_02": {
-                "start_pos": 140,
-                "end_pos": 247,
-                "length": 107,
+                "start_pos": 94,
+                "end_pos": 177,
+                "length": 83,
                 "type": "double"
             },
             "Station_02_to_Station_03": {
-                "start_pos": 247,
-                "end_pos": 348,
-                "length": 101,
-                "type": "double"
-            },
-            "Station_03_to_Station_04": {
-                "start_pos": 348,
-                "end_pos": 495,
-                "length": 147,
-                "type": "single"
-            },
-            "Station_04_to_Station_05": {
-                "start_pos": 495,
-                "end_pos": 612,
-                "length": 117,
-                "type": "single"
-            },
-            "Station_05_to_Station_06": {
-                "start_pos": 612,
-                "end_pos": 727,
+                "start_pos": 177,
+                "end_pos": 292,
                 "length": 115,
                 "type": "double"
             },
+            "Station_03_to_Station_04": {
+                "start_pos": 292,
+                "end_pos": 403,
+                "length": 111,
+                "type": "double"
+            },
+            "Station_04_to_Station_05": {
+                "start_pos": 403,
+                "end_pos": 511,
+                "length": 108,
+                "type": "single"
+            },
+            "Station_05_to_Station_06": {
+                "start_pos": 511,
+                "end_pos": 608,
+                "length": 97,
+                "type": "single"
+            },
             "Station_06_to_Station_07": {
-                "start_pos": 727,
-                "end_pos": 841,
-                "length": 114,
+                "start_pos": 608,
+                "end_pos": 701,
+                "length": 93,
                 "type": "double"
             },
             "Station_07_to_Station_08": {
-                "start_pos": 841,
-                "end_pos": 949,
-                "length": 108,
+                "start_pos": 701,
+                "end_pos": 850,
+                "length": 149,
                 "type": "double"
             },
             "Station_08_to_Station_09": {
-                "start_pos": 949,
-                "end_pos": 1096,
-                "length": 147,
+                "start_pos": 850,
+                "end_pos": 941,
+                "length": 91,
                 "type": "double"
             }
         }
     },
     "op_params": {
-        "loop_lines_at_stations": 1,
-        "headway_mins": 3,
-        "hold_penalty_per_min": 0.1,
-        "loop_penalty": 5.0
+        "loop_lines_at_stations": 2,
+        "headway_mins": 4,
+        "hold_penalty_per_min": 0.15,
+        "loop_penalty": 7.0
     }
 }
