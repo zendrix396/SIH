@@ -188,7 +188,7 @@ def solve_bidirectional_schedule(train_data, network, op_params):
             prob += departure_time[t2][u] >= arrival_time[t1][u] - M * order, f"C_Opp_{t2}_{t1}_{seg_key}"
             prob += departure_time[t1][v] >= arrival_time[t2][v] - M * (1 - order), f"C_Opp_{t1}_{t2}_{seg_key}"
     
-    solver = pulp.HiGHS(msg=True, timeLimit=30)
+    solver = pulp.HiGHS(msg=True, timeLimit=120)
     prob.solve(solver)
     
     if pulp.LpStatus[prob.status] == 'Optimal':
@@ -359,6 +359,13 @@ if 'current_time' not in st.session_state: st.session_state['current_time'] = 0.
 if 'animation_speed' not in st.session_state: st.session_state['animation_speed'] = 1
 if 'scenario_seed' not in st.session_state: st.session_state['scenario_seed'] = 42 # Default seed
 
+# --- Display KPIs ---
+if st.session_state.get('simulation_data'):
+    data = st.session_state.simulation_data
+    c1, c2 = st.columns(2)
+    c1.metric("Solver Status", data.get('status', 'N/A'))
+    c2.metric("Total Delay (mins)", f"{data.get('total_delay', 0):.1f}")
+
 # Display Redis connection status in the sidebar
 if CACHE_ENABLED:
     st.sidebar.success("Redis connected. Caching is ON.")
@@ -375,10 +382,19 @@ st.session_state.scenario_seed = st.sidebar.number_input(
     help="Change this number to generate a new random scenario. The same seed will always produce the same scenario."
 )
 
+num_trains = st.sidebar.number_input("Number of Trains", min_value=1, max_value=50, value=20, step=1)
+num_main_stations = st.sidebar.number_input("Number of Main Stations", min_value=2, max_value=10, value=4, step=1)
+num_loop_stations = st.sidebar.number_input("Number of Loop Stations", min_value=0, max_value=5, value=3, step=1)
+
 if st.sidebar.button("Generate & Run New Simulation"):
     st.session_state['animating'] = False
     with st.spinner("Generating scenario and solving schedule... This may take up to 2 minutes."):
-        train_data, network, op_params = generate_bidirectional_network_data(seed=st.session_state.scenario_seed)
+        train_data, network, op_params = generate_bidirectional_network_data(
+            num_main_stations=num_main_stations,
+            num_loop_stations=num_loop_stations,
+            num_trains=num_trains,
+            seed=st.session_state.scenario_seed
+        )
         
         # --- Caching Logic ---
         schedule_results, status = None, "Not Solved"
@@ -411,13 +427,19 @@ if st.sidebar.button("Generate & Run New Simulation"):
                 st.info("Saved new result to Redis cache.")
         
         if schedule_results:
+            total_delay = sum(
+                max(0, schedule_results[t][train_data[t]['destination']]['arrival'] - train_data[t]['scheduled_arrival'])
+                for t in train_data
+            )
             st.session_state['simulation_data'] = {
                 "train_data": train_data, "network": network,
                 "schedule": schedule_results,
-                "briefing": format_controller_briefing(train_data, schedule_results)
+                "briefing": format_controller_briefing(train_data, schedule_results),
+                "total_delay": total_delay,
+                "status": status,
             }
             st.session_state['current_time'] = 0.0
-            st.success("Optimal Schedule Found!")
+            st.success(f"Schedule Found! Status: {status}")
         else:
             st.error(f"Solver failed to find a feasible solution. Status: {status}")
             st.session_state['simulation_data'] = None
