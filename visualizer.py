@@ -320,7 +320,7 @@ def get_event_log(t, schedule, train_data):
     events = []
     for train_id, data in train_data.items():
         for node in data['route']:
-            arr = schedule[train_id][node]['arrival']
+            arr = schedule[train_id][node]['arrival'] 
             dep = schedule[train_id][node]['departure']
             if arr is not None and arr <= t:
                 events.append((arr, f"T:{arr:.0f} - {train_id} (P{data['priority']}) ARRIVED at {node}"))
