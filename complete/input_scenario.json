@@ -1,0 +1,186 @@
+{
+    "scenario_name": "Head-On Conflict Scenario",
+    "train_data": {
+        "UP_Express": {
+            "priority": 10,
+            "base_speed_kph": 130,
+            "dep_A_mins": 50,
+            "stop_penalty_mins": 5,
+            "direction": "UP"
+        },
+        "DOWN_Goods": {
+            "priority": 1,
+            "base_speed_kph": 70,
+            "dep_A_mins": 0,
+            "stop_penalty_mins": 10,
+            "direction": "DOWN"
+        },
+        "Filler_Train_00": {
+            "priority": 1,
+            "base_speed_kph": 101,
+            "dep_A_mins": 200,
+            "stop_penalty_mins": 5,
+            "direction": "UP"
+        },
+        "Filler_Train_01": {
+            "priority": 5,
+            "base_speed_kph": 93,
+            "dep_A_mins": 225,
+            "stop_penalty_mins": 5,
+            "direction": "UP"
+        },
+        "Filler_Train_02": {
+            "priority": 1,
+            "base_speed_kph": 82,
+            "dep_A_mins": 250,
+            "stop_penalty_mins": 6,
+            "direction": "UP"
+        },
+        "Filler_Train_03": {
+            "priority": 1,
+            "base_speed_kph": 96,
+            "dep_A_mins": 275,
+            "stop_penalty_mins": 5,
+            "direction": "UP"
+        },
+        "Filler_Train_04": {
+            "priority": 5,
+            "base_speed_kph": 86,
+            "dep_A_mins": 300,
+            "stop_penalty_mins": 8,
+            "direction": "UP"
+        },
+        "Filler_Train_05": {
+            "priority": 1,
+            "base_speed_kph": 94,
+            "dep_A_mins": 325,
+            "stop_penalty_mins": 7,
+            "direction": "UP"
+        },
+        "Filler_Train_06": {
+            "priority": 1,
+            "base_speed_kph": 104,
+            "dep_A_mins": 350,
+            "stop_penalty_mins": 6,
+            "direction": "UP"
+        },
+        "Filler_Train_07": {
+            "priority": 5,
+            "base_speed_kph": 93,
+            "dep_A_mins": 375,
+            "stop_penalty_mins": 7,
+            "direction": "UP"
+        },
+        "Filler_Train_08": {
+            "priority": 3,
+            "base_speed_kph": 84,
+            "dep_A_mins": 400,
+            "stop_penalty_mins": 6,
+            "direction": "UP"
+        },
+        "Filler_Train_09": {
+            "priority": 3,
+            "base_speed_kph": 83,
+            "dep_A_mins": 425,
+            "stop_penalty_mins": 5,
+            "direction": "UP"
+        },
+        "Filler_Train_10": {
+            "priority": 3,
+            "base_speed_kph": 83,
+            "dep_A_mins": 450,
+            "stop_penalty_mins": 7,
+            "direction": "UP"
+        },
+        "Filler_Train_11": {
+            "priority": 3,
+            "base_speed_kph": 99,
+            "dep_A_mins": 475,
+            "stop_penalty_mins": 7,
+            "direction": "UP"
+        },
+        "Filler_Train_12": {
+            "priority": 1,
+            "base_speed_kph": 103,
+            "dep_A_mins": 500,
+            "stop_penalty_mins": 8,
+            "direction": "UP"
+        }
+    },
+    "section_data": {
+        "stations": [
+            "Station_00",
+            "Station_01",
+            "Station_02",
+            "Station_03",
+            "Station_04",
+            "Station_05",
+            "Station_06",
+            "Station_07",
+            "Station_08",
+            "Station_09"
+        ],
+        "segments": {
+            "Station_00_to_Station_01": {
+                "start_pos": 0,
+                "end_pos": 140,
+                "length": 140,
+                "type": "double"
+            },
+            "Station_01_to_Station_02": {
+                "start_pos": 140,
+                "end_pos": 247,
+                "length": 107,
+                "type": "double"
+            },
+            "Station_02_to_Station_03": {
+                "start_pos": 247,
+                "end_pos": 348,
+                "length": 101,
+                "type": "double"
+            },
+            "Station_03_to_Station_04": {
+                "start_pos": 348,
+                "end_pos": 495,
+                "length": 147,
+                "type": "single"
+            },
+            "Station_04_to_Station_05": {
+                "start_pos": 495,
+                "end_pos": 612,
+                "length": 117,
+                "type": "single"
+            },
+            "Station_05_to_Station_06": {
+                "start_pos": 612,
+                "end_pos": 727,
+                "length": 115,
+                "type": "double"
+            },
+            "Station_06_to_Station_07": {
+                "start_pos": 727,
+                "end_pos": 841,
+                "length": 114,
+                "type": "double"
+            },
+            "Station_07_to_Station_08": {
+                "start_pos": 841,
+                "end_pos": 949,
+                "length": 108,
+                "type": "double"
+            },
+            "Station_08_to_Station_09": {
+                "start_pos": 949,
+                "end_pos": 1096,
+                "length": 147,
+                "type": "double"
+            }
+        }
+    },
+    "op_params": {
+        "loop_lines_at_stations": 1,
+        "headway_mins": 3,
+        "hold_penalty_per_min": 0.1,
+        "loop_penalty": 5.0
+    }
+}

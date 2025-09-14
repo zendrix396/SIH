@@ -1,0 +1,56 @@
+
+==========================================================
+RUNNING SCENARIO: Morning Rush (Simple Solution)
+==========================================================
+Input Train Data:
+             priority  speed_kph  dep_A_mins  stop_penalty_mins
+Goods               1         70         -15                 10
+Rajdhani           10        130           0                  5
+MailExpress         7        110          10                  5
+Local               3         90          20                  8
+
+Departure Times Locked: False
+------------------------------
+Solving complex schedule with Pyomo...
+
+--- RESULTS ---
+Solver Status: ok, Termination: optimal
+
+Total Priority-Weighted Delay: 17.95 'priority-minutes'
+
+>>>>> OPTIMAL DECISIONS AT STATION B <<<<<
+  - Goods: Assigned to MAIN LINE.
+  - Rajdhani: Assigned to MAIN LINE.
+  - MailExpress: Assigned to MAIN LINE.
+  - Local: Assigned to MAIN LINE.
+
+>>>>> GENERATED OPTIMAL SCHEDULE (in minutes from T=0) <<<<<
+             Priority  Dep_A  Arr_B  Dep_B   Arr_C  Delay
+Train                                                    
+Goods               1    2.0  88.67  88.67  174.38  17.95
+Rajdhani           10    0.0  46.15  46.15   92.31  -0.00
+MailExpress         7   10.0  64.55  64.55  119.09   0.00
+Local               3   20.0  86.67  86.67  153.33  -0.00
+
+==========================================================
+RUNNING SCENARIO: Mid-Section Conflict (Complex Solution)
+==========================================================
+Input Train Data:
+             priority  speed_kph  dep_A_mins  stop_penalty_mins
+Goods               1         80         -15                 10
+Rajdhani           10        130           0                  5
+MailExpress         7        120           5                  5
+Local               3         90          20                  8
+
+Departure Times Locked: True
+------------------------------
+Solving complex schedule with Pyomo...
+WARNING: Loading a SolverResults object with a warning status into
+model.name="ComplexTrainSchedule";
+    - termination condition: infeasible
+    - message from solver: <undefined>
+
+--- RESULTS ---
+Solver Status: warning, Termination: infeasible
+
+Could not find an optimal solution. The problem might be over-constrained or infeasible.
